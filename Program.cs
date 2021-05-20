@@ -10,7 +10,7 @@ namespace FileSystemWatcherPOC
         {
             try
             {
-                var filePath = "../myvol";
+                var filePath = "/myvol/";
                 Console.WriteLine(System.Environment.CurrentDirectory);
                 var _fileSystemWatcher = new FileSystemWatcher(filePath)
                 {
@@ -19,6 +19,7 @@ namespace FileSystemWatcherPOC
                     EnableRaisingEvents = true,
                     IncludeSubdirectories = true
                 };
+               
                 _fileSystemWatcher.Changed += Notify;
                 _fileSystemWatcher.Created += Notify;
                 _fileSystemWatcher.Deleted += Notify;
