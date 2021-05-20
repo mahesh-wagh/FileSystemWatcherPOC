@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+
 namespace FileSystemWatcherPOC
 {
     class Program
@@ -9,6 +10,7 @@ namespace FileSystemWatcherPOC
         {
             try
             {
+                Console.WriteLine(System.Environment.CurrentDirectory);
                 var _fileSystemWatcher = new FileSystemWatcher(System.Environment.CurrentDirectory)
                 {
                     Filter = "*.txt",
