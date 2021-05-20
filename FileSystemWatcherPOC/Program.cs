@@ -7,17 +7,30 @@ namespace FileSystemWatcherPOC
         private static FileSystemWatcher _fileSystemWatcher;
         static void Main(string[] args)
         {
+            try
+            {
+                var _fileSystemWatcher = new FileSystemWatcher(System.Environment.CurrentDirectory + @"\temp")
+                {
+                    Filter = "*.txt",
+                    NotifyFilter = NotifyFilters.FileName | NotifyFilters.Size,
+                    EnableRaisingEvents = true,
+                    IncludeSubdirectories = true
+                };
+                _fileSystemWatcher.Changed += Notify;
+                _fileSystemWatcher.Created += Notify;
+                _fileSystemWatcher.Deleted += Notify;
 
-            _fileSystemWatcher = new FileSystemWatcher("Watcher", "*.*");
 
-            _fileSystemWatcher.Changed +=Notify;
-            _fileSystemWatcher.Created += Notify;
-            _fileSystemWatcher.Deleted += Notify;
-            _fileSystemWatcher.Renamed += Notify;
-            _fileSystemWatcher.IncludeSubdirectories = true;
-            _fileSystemWatcher.EnableRaisingEvents = true;
 
-            Console.ReadKey(false);
+                Console.WriteLine("press enter key to exit");
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+           
         }
 
         private static void Notify(object sender,FileSystemEventArgs e)
