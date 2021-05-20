@@ -5,8 +5,8 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["FileSystemWatcherPOC/FileSystemWatcherPOC.csproj", "FileSystemWatcherPOC/"]
-RUN dotnet restore "FileSystemWatcherPOC/FileSystemWatcherPOC.csproj"
+COPY ["FileSystemWatcherPOC.csproj", "FileSystemWatcherPOC/"]
+RUN dotnet restore "FileSystemWatcherPOC.csproj"
 COPY . .
 WORKDIR "/src/FileSystemWatcherPOC"
 RUN dotnet build "FileSystemWatcherPOC.csproj" -c Release -o /app/build
