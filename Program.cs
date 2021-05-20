@@ -9,7 +9,7 @@ namespace FileSystemWatcherPOC
         {
             try
             {
-                var _fileSystemWatcher = new FileSystemWatcher(System.Environment.CurrentDirectory + @"\temp")
+                var _fileSystemWatcher = new FileSystemWatcher(System.Environment.CurrentDirectory)
                 {
                     Filter = "*.txt",
                     NotifyFilter = NotifyFilters.FileName | NotifyFilters.Size,
