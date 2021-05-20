@@ -10,8 +10,9 @@ namespace FileSystemWatcherPOC
         {
             try
             {
+                var filePath = "../myvol";
                 Console.WriteLine(System.Environment.CurrentDirectory);
-                var _fileSystemWatcher = new FileSystemWatcher(System.Environment.CurrentDirectory)
+                var _fileSystemWatcher = new FileSystemWatcher(filePath)
                 {
                     Filter = "*.txt",
                     NotifyFilter = NotifyFilters.FileName | NotifyFilters.Size,
