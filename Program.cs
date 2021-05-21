@@ -14,7 +14,7 @@ namespace FileSystemWatcherPOC
         private static IChangeToken _fileChangeToken;
         private static PhysicalFileProvider _fileProvider;
         private static readonly ConcurrentDictionary<string, DateTime> _files = new ConcurrentDictionary<string, DateTime>();
-        private static string _filePath= "/another";
+        private static string _filePath= "/app/another";
         public static void DoWork()
         {
             Console.WriteLine("Using PhysicalFileWatcher");
