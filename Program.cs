@@ -17,6 +17,7 @@ namespace FileSystemWatcherPOC
         private static string _filePath= "/another";
         public static void DoWork()
         {
+            Console.WriteLine("Using PhysicalFileWatcher");
             _fileProvider = new PhysicalFileProvider(_filePath); // e.g. C:\temp
             WatchForFileChanges();
         }
